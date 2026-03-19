@@ -1,0 +1,40 @@
+
+function removeDuplicates(nums: number[]): number {
+    let auditEle = nums[0], cnt=1
+    for(let i=1; i<nums.length; i++) {
+        if(nums[i] == auditEle) cnt++
+        else {
+            auditEle = nums[i]
+            cnt = 1
+        }
+        if(cnt > 2) nums[i] = undefined;
+    }
+     // console.log('jj',nums.toString());
+  
+    let left=0, right=1, count=0;
+    while(right<nums.length) {
+    if(nums[left] == null) {
+        //console.log('====',left, right)
+        if(nums[right] == null) {
+            right++
+        }
+        else {
+            swap(nums, left, right)
+           // console.log('====',left, right)
+            left++;
+            }
+    } else {left++; right++};
+    }
+    for(let i =0; i<nums.length; i++) {
+        if(nums[i]!=null) count++
+    }
+    return count;
+};
+
+function swap(arr, l, r) {
+    let temp = arr[l]
+    arr[l]=arr[r]
+    arr[r]=temp
+}
+
+removeDuplicates([0,0,1,1,1,1,2,3,3,3,3])
