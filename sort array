@@ -1,0 +1,34 @@
+/**
+ Do not return anything, modify nums in-place instead.
+ */
+function sortColors(arr: number[]): void {
+    let left = 0, right = arr.length - 1, pivot = 1, start=-1;
+if(arr.length==1 ) 
+return
+while(left < right) {
+    if(arr[left]>pivot) {
+        swap(arr, left, right)
+        right--
+    } else if(arr[left] == pivot) {
+       if(start==-1) start = left
+        left++
+    } else {
+        if(start!=-1) {
+        swap(arr, start, left)
+        start++
+        }
+        left++ 
+    }
+}
+if(arr[left] == 0 && start!=-1) {
+    swap(arr, start, left)
+}
+};
+
+function swap(arr, l, r) {
+    let temp = arr[l]
+    arr[l]=arr[r]
+    arr[r]=temp
+}
+
+sortColors([2,0,2,1,1,0])
