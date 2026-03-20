@@ -1,0 +1,20 @@
+function isPalindrome(str) {
+    str = (str.replace(/[^a-z0-9]/gi, "")).toLowerCase()
+    let center = Math.floor(str.length/2),left=0,right=0;
+    right=center+1
+    if(str.length % 2 == 0) {
+        left = center-1 
+        if(str[left]!=str[center]) return false
+        left--
+    } else left = center-1;
+    console.log(str)
+    while(left >= 0) {
+        //console.log('====',left,str[left],str[right])
+        if(str[left]!=str[right])
+        return false
+        left--
+        right++
+    }
+    return true
+}
+isPalindrome('amanaplanacanalpanama')
