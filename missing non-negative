@@ -1,0 +1,20 @@
+function smallestInt(arr) {
+    let s=0, e=arr.length-1,mid=0,i=0;
+    if(arr[0]-1 !== -1) return arr[0]-1
+    while(s<e) {
+        i++
+        if(s+1==e) return arr[s]+1
+        console.log('iiiiii=>',i)
+         mid = Math.floor((s + e)/ 2)
+         if(mid!==arr[mid]) {
+             e=mid
+             console.log('eeee=>',s,e,mid)
+         } else {
+             s=mid
+              console.log('sssss=>',s,e,mid)
+         }
+         
+    }
+  
+}
+console.log(smallestInt([0, 1, 2, 3, 4, 10]))
